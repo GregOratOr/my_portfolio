@@ -4,7 +4,7 @@ import ProjectCard from "@/components/ui/ProjectCard";
 import AboutSection from "@/components/sections/AboutSection";
 import ContactSection from "@/components/sections/ContactSection";
 
-import { CONTACT_INFO, HERO_DATA, PROJECTS, SKILLS } from "@/data/portfolio";
+import { HERO_DATA, TECH_STACK_DATA, PROJECTS, CONTACT_INFO, CONTACT_DATA } from "@/data/portfolio";
 
 export default function Home() {
   return (
@@ -27,12 +27,12 @@ export default function Home() {
         />
       </div>
 
-      {/* About Section */}
+      {/* The About Me and Tech Stack Section*/}
       <div id="about" className="snap-start">
-         <AboutSection skills={SKILLS} />
+         <AboutSection
+          data={TECH_STACK_DATA}
+        />
       </div>
-
-      {/* The Tech Stack */}
 
       {/* The Projects Section */}
       <section id="projects" className="min-h-screen flex flex-col items-center justify-center bg-slate-800 snap-start p-10">
@@ -51,13 +51,11 @@ export default function Home() {
             ))}
           </div>
         </div>
-
-
       </section>
 
       {/* Contact Me Section */}
       <div className="snap-start">
-        <ContactSection CONTACT_INFO={CONTACT_INFO}/>
+        <ContactSection CONTACT_DATA={CONTACT_DATA}/>
       </div>
       
 

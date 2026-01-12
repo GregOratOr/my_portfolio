@@ -1,6 +1,6 @@
 // src/components/sections/ContactSection.jsx
 
-export default function ContactSection({CONTACT_INFO}) {
+export default function ContactSection({CONTACT_DATA}) {
   return (
     <section id="contact" className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-t from-black to-slate-900 snap-start p-10 text-center">
       
@@ -20,7 +20,7 @@ export default function ContactSection({CONTACT_INFO}) {
           
           {/* EMAIL BUTTON */}
           <a 
-            href={`mailto:${CONTACT_INFO.email}`}
+            href={`mailto:${CONTACT_DATA.email}`}
             className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 hover:scale-105 transition shadow-lg shadow-indigo-500/25"
           >
             Say Hello 👋
@@ -28,7 +28,7 @@ export default function ContactSection({CONTACT_INFO}) {
 
           {/* GITHUB BUTTON */}
           <a 
-            href={CONTACT_INFO.github}
+            href={CONTACT_DATA.github}
             target="_blank" 
             rel="noopener noreferrer"
             className="px-8 py-4 bg-slate-800 text-white font-bold rounded-lg border border-slate-700 hover:border-white transition"
