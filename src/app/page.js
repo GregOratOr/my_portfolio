@@ -5,6 +5,7 @@ import ContactSection from "@/components/sections/ContactSection";
 import TimelineSection from "@/components/sections/TimelineSection";
 
 import { HERO_DATA, TECH_STACK_DATA, EXPERIENCE, PROJECTS, EDUCATION } from "@/data/portfolio";
+import ProjectsSection from "@/components/sections/ProjectsSection";
 
 export default function Home() {
   return (
@@ -13,12 +14,12 @@ export default function Home() {
     // bg-slate-900: Dark blue-grey background.
     // flex/items-center/justify-center: Centers the card in the middle of the screen.
     <main className="h-screen w-full overflow-y-scroll snap-y snap-mandatory bg-slate-900 scroll-smooth">
-      
+
       {/* The Navigation Bar */}
       <Navbar />
 
       {/* The Hero Section */}
-      <div id="home" className="snap-start">
+      <div id="home" className="">
         <HeroSection
           data = {HERO_DATA}
         />
@@ -36,23 +37,9 @@ export default function Home() {
       />
       
       {/* The Projects Section */}
-      <section id="projects" className="min-h-screen flex flex-col items-center justify-center bg-slate-800 snap-start p-10">
-        <div className="max-w-6xl w-full pt-20">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">Featured Projects</h2>
-
-          {/* The Project Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {PROJECTS.map((project) => (
-              <ProjectCard
-                key={project.id}
-                title={project.title}
-                description={project.desc}
-                tags={project.tags}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProjectsSection
+        projects={PROJECTS}
+      />
 
       {/* Contact Me Section */}
       <ContactSection/>
