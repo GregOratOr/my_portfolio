@@ -4,8 +4,8 @@ import { useState } from "react";
 
 export default function TechGridCarousel({ skills }) {
     // CONFIGURATION
-    const ROWS = 2;
-    const COLS = 3;
+    const ROWS = 3;
+    const COLS = 4;
     const ITEMS_PER_PAGE = ROWS * COLS;
 
     // TAILWIND CLASS MAPPING
@@ -30,11 +30,11 @@ export default function TechGridCarousel({ skills }) {
     const prevPage = () => setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
 
     return (
-        <div className="relative w-full max-w-6xl mx-auto group/carousel">
+        <div className="relative w-full max-w-4xl mx-auto group/carousel">
 
             {/* =========================================
-          1. THE FADING CURTAINS (Gradient Masks)
-         ========================================= */}
+                1. THE FADING CURTAINS (Gradient Masks)
+                ========================================= */}
             {/* Left Fade */}
             <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent z-10 pointer-events-none" />
             {/* Right Fade */}
@@ -42,8 +42,8 @@ export default function TechGridCarousel({ skills }) {
 
 
             {/* =========================================
-          2. NAVIGATION BUTTONS (Now on top of fade)
-         ========================================= */}
+                2. NAVIGATION BUTTONS (Now on top of fade)
+                ========================================= */}
             <button
                 onClick={prevPage}
                 className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-slate-800 text-white rounded-full hover:bg-indigo-600 transition z-20 shadow-lg border border-slate-700"
@@ -64,8 +64,8 @@ export default function TechGridCarousel({ skills }) {
 
 
             {/* =========================================
-          3. THE CAROUSEL TRACK
-         ========================================= */}
+                3. THE CAROUSEL TRACK
+                ========================================= */}
             <div className="overflow-hidden w-full py-4"> {/* Added padding Y for shadow breathing room */}
 
                 <div
@@ -73,20 +73,20 @@ export default function TechGridCarousel({ skills }) {
                     // LOGIC: 
                     // 1. We move by -100% * currentPage (Standard slide)
                     // 2. But we add +10% (translate-x-[10%]) to Center the active 80% card
-                    style={{ transform: `translateX(calc(-${currentPage * 100}% + 10%))` }}
+                    style={{ transform: `translateX(calc(-${currentPage * 70}% + 15%))` }}
                 >
                     {pages.map((pageItems, pageIndex) => (
 
                         // INDIVIDUAL PAGE: Width is set to 80% (w-[80%])
                         // This leaves 10% gap on Left and Right for peeking
-                        <div key={pageIndex} className="w-[80%] flex-shrink-0 px-4">
+                        <div key={pageIndex} className="w-[70%] flex-shrink-0 px-4">
 
-                            <div className={`grid grid-cols-2 ${GRID_COLS_CLASS} gap-6 content-center`}>
+                            <div className={`grid grid-cols-2 ${GRID_COLS_CLASS} gap-4 content-center`}>
 
                                 {pageItems.map((skill, index) => (
                                     <div
                                         key={index}
-                                        className={`flex flex-col items-center justify-center p-6 bg-slate-800/50 rounded-xl border border-slate-700/50 hover:bg-slate-800 hover:-translate-y-1 transition duration-300 group h-32 w-full shadow-lg ${skill.hover}`}
+                                        className={`flex flex-col items-center justify-center p-6 bg-slate-800/50 rounded-xl border border-slate-700/50 hover:bg-slate-800 hover:-translate-y-1 transition duration-300 group h-full w-full shadow-lg ${skill.hover}`}
                                     >
                                         <div className={`mb-3 text-slate-400 transition duration-300 group-hover:scale-110 ${skill.accent.replace('text-', 'group-hover:text-')}`}>
                                             <div className="w-10 h-10 flex items-center justify-center">
