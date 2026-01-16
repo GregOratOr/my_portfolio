@@ -1,10 +1,9 @@
 import HeroSection from "@/components/sections/HeroSection";
 import Navbar from "@/components/ui/NavBar";
-import ProjectCard from "@/components/ui/ProjectCard";
 import AboutSection from "@/components/sections/AboutSection";
 import ContactSection from "@/components/sections/ContactSection";
 
-import { HERO_DATA, TECH_STACK_DATA, PROJECTS, CONTACT_INFO, CONTACT_DATA } from "@/data/portfolio";
+import { HERO_DATA, TECH_STACK_DATA, EXPERIENCE, PROJECTS, EDUCATION } from "@/data/portfolio";
 
 export default function Home() {
   return (
@@ -20,10 +19,7 @@ export default function Home() {
       {/* The Hero Section */}
       <div id="home" className="snap-start">
         <HeroSection
-          name={HERO_DATA.name}
-          title={HERO_DATA.title}
-          location={HERO_DATA.location}
-          intro={HERO_DATA.intro}
+          data = {HERO_DATA}
         />
       </div>
 
@@ -54,10 +50,8 @@ export default function Home() {
       </section>
 
       {/* Contact Me Section */}
-      <div className="snap-start">
-        <ContactSection CONTACT_DATA={CONTACT_DATA}/>
-      </div>
-      
+      <ContactSection/>
+
 
     </main>
   );
