@@ -25,11 +25,9 @@ export default function Home() {
       </div>
 
       {/* The About Me and Tech Stack Section*/}
-      <div id="about" className="snap-start">
-         <AboutSection
-          data={TECH_STACK_DATA}
-        />
-      </div>
+      <AboutSection
+        data={TECH_STACK_DATA}
+      />
 
       {/* Experience Timeline */}
       <TimelineSection

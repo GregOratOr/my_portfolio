@@ -8,7 +8,7 @@ export default function AboutSection({ data }) {
   const { title, desc, skills, learning } = data;
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-slate-900 snap-start py-20">
+    <section id="tech-stack" className="min-h-screen flex flex-col items-center justify-center bg-slate-900 py-20">
 
       <div className="max-w-6xl w-full px-6 space-y-16">
 
@@ -44,13 +44,19 @@ export default function AboutSection({ data }) {
                   key={index}
                   className={`aspect-square flex flex-col items-center justify-center p-2 bg-slate-900/80 rounded-lg border border-slate-700 transition group relative ${item.hover}`}
                 >
-                  <div className={`w-5 h-5 text-slate-400 transition mb-1 ${item.accent.replace('text-', 'group-hover:text-')}`}>
+                  <div className={`w-8 h-8 text-slate-400 transition mb-1.5 ${item.accent.replace('text-', 'group-hover:text-')}`}>
                     {item.icon}
                   </div>
-                  <span className="text-[9px] font-medium text-slate-400 group-hover:text-white uppercase tracking-wide">
+
+                  <span className={`
+                    font-medium text-slate-400 group-hover:text-white uppercase tracking-wide 
+                    text-center w-full break-words leading-none
+                    ${item.label.length > 12 ? 'text-[7px]' : item.label.length > 8 ? 'text-[8px]' : 'text-[9px]'}
+                  `}>
                     {item.label}
                   </span>
-                  {/* Tiny Tag Indicator (Dot) if tag exists */}
+
+                  {/* Tiny Tag Indicator */}
                   {item.tag && (
                     <div className={`absolute top-1 right-1 w-1.5 h-1.5 rounded-full ${item.tag.bg.replace('/30', '')}`} />
                   )}
