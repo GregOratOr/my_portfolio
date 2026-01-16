@@ -2,6 +2,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import Navbar from "@/components/ui/NavBar";
 import AboutSection from "@/components/sections/AboutSection";
 import ContactSection from "@/components/sections/ContactSection";
+import TimelineSection from "@/components/sections/TimelineSection";
 
 import { HERO_DATA, TECH_STACK_DATA, EXPERIENCE, PROJECTS, EDUCATION } from "@/data/portfolio";
 
@@ -30,6 +31,12 @@ export default function Home() {
         />
       </div>
 
+      {/* Experience Timeline */}
+      <TimelineSection
+        experience={EXPERIENCE}
+        education={EDUCATION}
+      />
+      
       {/* The Projects Section */}
       <section id="projects" className="min-h-screen flex flex-col items-center justify-center bg-slate-800 snap-start p-10">
         <div className="max-w-6xl w-full pt-20">
