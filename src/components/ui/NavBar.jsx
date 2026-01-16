@@ -7,15 +7,16 @@ export default function Navbar() {
 
                 {/* LOGO / NAME */}
                 <a href="#home" className="text-xl font-bold text-white tracking-tight hover:text-indigo-300 transition">
-                    Profile
+                    S.
                     <span className="text-indigo-500">
-                        .
+                        B
                     </span>
                 </a>
 
                 {/* DESKTOP LINKS */}
                 <div className="hidden md:flex space-x-8">
-                    <NavLink href="#home" label="Home" />
+                    <NavLink href="#tech-stack" label="My Arsenal"/>
+                    <NavLink href="#experience" label="Experience"/>
                     <NavLink href="#projects" label="Projects" />
                     <NavLink href="#contact" label="Contact" />
                 </div>
