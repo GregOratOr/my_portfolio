@@ -4,7 +4,9 @@ import AboutSection from "@/components/sections/AboutSection";
 import ContactSection from "@/components/sections/ContactSection";
 import TimelineSection from "@/components/sections/TimelineSection";
 
-import { HERO_DATA, TECH_STACK_DATA, EXPERIENCE, PROJECTS, EDUCATION } from "@/data/portfolio";
+import { HERO_DATA, TECH_STACK_DATA} from "@/data/portfolio";
+import { PROJECTS } from "@/data/project_data";
+import { EXPERIENCE, EDUCATION } from "@/data/experience_data"
 import ProjectsSection from "@/components/sections/ProjectsSection";
 
 export default function Home() {
@@ -16,14 +18,12 @@ export default function Home() {
     <main className="h-screen w-full overflow-y-scroll snap-y snap-mandatory bg-slate-900 scroll-smooth">
 
       {/* The Navigation Bar */}
-      <Navbar />
+      <Navbar/>
 
       {/* The Hero Section */}
-      <div id="home" className="">
-        <HeroSection
-          data = {HERO_DATA}
-        />
-      </div>
+      <HeroSection
+        data = {HERO_DATA}
+      />
 
       {/* The About Me and Tech Stack Section*/}
       <AboutSection

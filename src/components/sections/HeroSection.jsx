@@ -7,7 +7,7 @@ export default function HeroSection({ data }) {
   const socialLinks = CONTACTS.filter((c) => c.key !== "email");
 
   return (
-    <section className="h-screen bg-slate-900 flex items-center justify-center p-8">
+    <section id="home" className="h-screen bg-slate-900 flex items-center justify-center p-8">
 
       {/* GRID CONTAINER */}
       {/* h-full: Ensures the grid columns stretch the full height of the screen */}
