@@ -31,7 +31,7 @@ export default function ContactSection() {
               href={emailContact.href}
               className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 hover:scale-105 transition shadow-lg shadow-indigo-500/25"
             >
-              {emailContact.label || "Say Hello"} 👋
+              {"Say Hello"} 👋
             </a>
           )}
 
