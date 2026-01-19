@@ -66,7 +66,7 @@ export default function TechGridCarousel({ skills }) {
             {/* =========================================
                 3. THE CAROUSEL TRACK
                 ========================================= */}
-            <div className="overflow-hidden w-full py-4"> {/* Added padding Y for shadow breathing room */}
+            <div className="overflow-hidden w-full py-2"> {/* Added padding Y for shadow breathing room */}
 
                 <div
                     className="flex transition-transform duration-700 ease-in-out will-change-transform items-start"
@@ -81,12 +81,15 @@ export default function TechGridCarousel({ skills }) {
                         // This leaves 10% gap on Left and Right for peeking
                         <div key={pageIndex} className="w-[70%] flex-shrink-0 px-4">
 
-                            <div className={`grid grid-cols-2 ${GRID_COLS_CLASS} gap-4 content-center`}>
+                            <div
+                                className={`grid grid-cols-2 ${GRID_COLS_CLASS} gap-4 h-[440px]`} // 1. Set fixed height
+                                style={{ gridTemplateRows: `repeat(${ROWS}, minmax(0, 1fr))` }}   // 2. Force equal row heights
+                            >
 
                                 {pageItems.map((skill, index) => (
                                     <div
                                         key={index}
-                                        className={`flex flex-col items-center justify-center p-6 bg-slate-800/50 rounded-xl border border-slate-700/50 hover:bg-slate-800 hover:-translate-y-1 transition duration-300 group h-full w-full shadow-lg ${skill.hover}`}
+                                        className={`aspect-square flex flex-col items-center justify-center p-6 bg-slate-800/50 rounded-xl border border-slate-700/50 hover:bg-slate-800 hover:-translate-y-1 transition duration-300 group w-full shadow-lg ${skill.hover}`}
                                     >
                                         <div className={`mb-3 text-slate-400 transition duration-300 group-hover:scale-110 ${skill.accent.replace('text-', 'group-hover:text-')}`}>
                                             <div className="w-10 h-10 flex items-center justify-center">
@@ -94,7 +97,7 @@ export default function TechGridCarousel({ skills }) {
                                             </div>
                                         </div>
 
-                                        <span className="text-slate-300 font-medium text-sm group-hover:text-white text-center">
+                                        <span className="text-slate-300 font-medium text-xs group-hover:text-white text-center w-full line-clamp-2 leading-tight break-words px-1">
                                             {skill.label}
                                         </span>
                                         {skill.tag && (
@@ -106,7 +109,7 @@ export default function TechGridCarousel({ skills }) {
                                 ))}
 
                                 {[...Array(ITEMS_PER_PAGE - pageItems.length)].map((_, i) => (
-                                    <div key={`empty-${i}`} className="hidden md:block" />
+                                    <div key={`empty-${i}`} className="hidden md:block h-full w-full" />
                                 ))}
                             </div>
                         </div>
