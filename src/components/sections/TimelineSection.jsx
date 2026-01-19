@@ -8,13 +8,13 @@ export default function TimelineSection({ experience, education }) {
     const data = activeTab === "work" ? experience : education;
 
     return (
-        <section id="experience" className="min-h-screen big-slate-900 py-20 px-6 text-white">
+        <section id="experience" className="min-h-screen bg-slate-900 py-20 px-6 text-white">
             <div className="max-w-4xl mx-auto">
                 {/* HEADER */}
                 <h2 className="text-3xl font-bold mb-8 text-center">My Experience</h2>
+                
                 {/* TAB SELECTOR */}
                 <div className="flex justify-center gap-4 mb-12">
-
                     <button
                         onClick={() => setActiveTab("work")}
                         className={`px-6 py-2 w-full rounded ${activeTab === "work" ? "h-11 bg-indigo-600 text-white shadow-lg scale-105" : "bg-slate-800 text-slate-400 hover:text-white"}`}
@@ -30,32 +30,50 @@ export default function TimelineSection({ experience, education }) {
                     </button>
                 </div>
 
-                {/* DEBUG: */}
-                {/* <div>
-                    Current Tab: {activeTab}<br />
-                    Item to show: {data.length}
-                </div> */}
-
                 <div className="ml-10 border-l-2 border-slate-700 space-y-12">
 
                     {data.map((item, index) => (
-
-                        // INDIVIDUAL ITEM CONTAINER
-                        // relative: Allows us to position the logo relative to this box
-                        // pl-12: Pushes content right so it doesn't overlap the logo
                         <div key={index} className="relative pl-12 group">
 
-                            {/* 1. THE LOGO NODE */}
-                            {/* absolute: Removes it from flow */}
-                            {/* -left-[25px]: Pulls it left. Why 25px? 
-                                Logo is 48px wide (w-12). Center is 24px. 
-                                Border is 2px. 
-                                So 24px + 1px = 25px centers it perfectly. */}
-                            <div className="absolute -left-[25px] top-0 w-12 h-12 bg-slate-900 border-4 border-slate-800 rounded-full flex items-center justify-center overflow-hidden transition group-hover:scale-110 group-hover:border-indigo-500">
-                                <img src={item.logo} alt="Logo" className="w-full h-full object-cover" />
+                            {/* --- MODIFIED LOGO NODE --- */}
+                            <div 
+                                className="
+                                    absolute top-0 
+                                    /* 1. INITIAL STATE: Small Circle centered on line */
+                                    -left-[25px] w-12 h-12 rounded-full border-4 border-slate-800 bg-slate-900
+                                    
+                                    /* 2. HOVER SIZE & POSITION: 
+                                       Expand to a larger box (w-48) to accommodate wide rectangular logos.
+                                       Adjust 'left' to keep it centered (-left-[96px] is approx half of w-48).
+                                    */
+                                    hover:w-48 hover:h-32 hover:-left-[96px]
+                                    
+                                    /* 3. HOVER SHAPE: 
+                                       Change from circle (rounded-full) to standard corners (rounded-lg).
+                                       Change background to white so transparent logos are visible.
+                                    */
+                                    hover:rounded-lg hover:bg-slate-900 hover:border-indigo-500
+                                    
+                                    /* Styling & Animation */
+                                    flex items-center justify-center overflow-hidden 
+                                    transition-all duration-300 ease-out
+                                    
+                                    /* Z-Index to pop over text */
+                                    z-10 hover:z-50 hover:shadow-2xl
+                                "
+                            >
+                                <img 
+                                    src={item.logo.src || item.logo} 
+                                    alt="Logo" 
+                                    /* object-cover: Fills the small circle (crops edges).
+                                       hover:object-contain: Shows full logo without cropping (original shape).
+                                       p-2: Adds padding so the logo doesn't touch the borders.
+                                    */
+                                    className="w-full h-full object-cover hover:object-contain p-1 hover:p-4 transition-all duration-300" 
+                                />
                             </div>
+                            {/* -------------------------- */}
 
-                            {/* 2. THE CONTENT (Same as Phase 2, just cleaner) */}
                             <div className="flex flex-col gap-1">
                                 <h3 className="text-xl font-bold group-hover:text-indigo-400 transition">
                                     {item.title}
