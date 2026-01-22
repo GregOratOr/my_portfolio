@@ -1,4 +1,4 @@
-import { TECHNOLOGIES } from "./tech_data";
+import { TECHNOLOGIES } from "./technologies";
 
 // =======================================
 //     THE PROJECTS LIBRARY (Independent Collection)

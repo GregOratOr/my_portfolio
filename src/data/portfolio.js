@@ -1,5 +1,5 @@
 import { TAGS, addTag} from "./data_utils"
-import { TECHNOLOGIES } from "./tech_data";
+import { TECHNOLOGIES } from "./technologies";
 
 
 // ----------------------------------------------------------------------------------------- //
@@ -47,9 +47,11 @@ export const TECH_STACK_DATA = {
 
 
 // =======================================
+// 1. THE HERO SECTION
 // =======================================
 
 // =======================================
+// 2. THE CONTACTS
 // =======================================
   {
   },

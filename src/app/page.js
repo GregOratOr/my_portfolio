@@ -5,8 +5,8 @@ import ContactSection from "@/components/sections/ContactSection";
 import TimelineSection from "@/components/sections/TimelineSection";
 
 import { HERO_DATA, TECH_STACK_DATA} from "@/data/portfolio";
-import { PROJECTS } from "@/data/project_data";
-import { EXPERIENCE, EDUCATION } from "@/data/experience_data"
+import { PROJECTS } from "@/data/projects";
+import { EXPERIENCE, EDUCATION } from "@/data/experience"
 import ProjectsSection from "@/components/sections/ProjectsSection";
 
 export default function Home() {
