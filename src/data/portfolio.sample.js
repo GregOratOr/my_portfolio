@@ -1,5 +1,5 @@
 import { TAGS, addTag} from "./data_utils"
-import { TECHNOLOGIES } from "./technologies";
+import { TECHNOLOGIES } from "./techs";
 
 
 // ----------------------------------------------------------------------------------------- //
