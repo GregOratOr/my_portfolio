@@ -45,3 +45,4 @@ src/data/portfolio.js
 src/data/logos/OSU_vertical_2C_O_over_W.png
 src/data/techs.js
 .vscode/settings.json
+public/resume.pdf
