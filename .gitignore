@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+src/data/experience.js
+src/data/technologies.js
+src/data/projects.js
+src/data/portfolio.js
+src/data/logos/OSU_vertical_2C_O_over_W.png
