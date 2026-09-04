@@ -113,7 +113,7 @@ globals.css tokens ────> every component (bg-bg, text-fg, border-line, t
 - One SVG per technology under `public/icons/tech/`, referenced by the registry `slug`. Zero SVG markup ships in JavaScript.
 - `mono: true` means the icon is drawn with `fill="currentColor"`; `TechIcon` paints it through a CSS `mask-image` so it inherits the accent colour. Brand icons render through `<img>`.
 - Six concept entries (`RL`, `DL`, `COMPUTERVISION`, `MULTIAGENTSYS`, `SIMULATION`, `OPENCV`) share `concept.svg` — a hash glyph — and differ only by accent.
-- The old `MAYA` icon was a 695 KB auto-traced path, 88% of the former monolith. It was replaced with a compact hand-authored mono glyph.
+- `maya.svg` is the gradient-filled Maya mark, 3.5 KB across 7 paths, extracted by hand from a seeklogo vector export (the export also carried a large grey watermark group, which was dropped). Its `viewBox` is `248 248 504 504`, a square crop centred on the mark, so it aligns with the other icons in a chip. The gradient IDs are prefixed `maya-` to stay collision-free.
 
 ---
 

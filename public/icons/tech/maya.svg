@@ -1,4 +1,46 @@
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-  <path d="M12 1.4 21.4 6.4v11.2L12 22.6 2.6 17.6V6.4L12 1.4Zm0 2.27L5 7.39v9.22l7 3.72 7-3.72V7.39L12 3.67Z" />
-  <path d="M7.6 16.6V8.2h1.98l2.42 3.9 2.42-3.9h1.98v8.4h-1.9v-5.1l-2.5 3.94-2.5-3.94v5.1H7.6Z" />
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="248 248 504 504" role="img" aria-label="Autodesk Maya">
+  <defs>
+    <linearGradient id="maya-a" gradientUnits="userSpaceOnUse" x1="337.6477" y1="513.9828" x2="575.9188" y2="467.6677" gradientTransform="matrix(1.1884 0 0 1.1884 92.7805 -133.6858)">
+      <stop offset="0" stop-color="#0F6067"/>
+      <stop offset=".5" stop-color="#05ABAC"/>
+      <stop offset="1" stop-color="#58BEC4"/>
+    </linearGradient>
+    <linearGradient id="maya-b" gradientUnits="userSpaceOnUse" x1="504.4486" y1="733.6583" x2="538.5057" y2="344.3834" gradientTransform="matrix(1.1884 0 0 1.1884 92.7805 -133.6858)">
+      <stop offset="0" stop-color="#117C83"/>
+      <stop offset=".5" stop-color="#21B5B5"/>
+      <stop offset="1" stop-color="#7ED4D4"/>
+    </linearGradient>
+    <linearGradient id="maya-c" gradientUnits="userSpaceOnUse" x1="307.3311" y1="350.882" x2="217.487" y2="627.3937" gradientTransform="matrix(1.1884 0 0 1.1884 92.7805 -133.6858)">
+      <stop offset="0" stop-color="#9ACCD3"/>
+      <stop offset=".5" stop-color="#72AEB3"/>
+      <stop offset="1" stop-color="#317D7F"/>
+    </linearGradient>
+    <linearGradient id="maya-d" gradientUnits="userSpaceOnUse" x1="111.7088" y1="666.5402" x2="262.5299" y2="617.5355" gradientTransform="matrix(1.1884 0 0 1.1884 92.7805 -133.6858)">
+      <stop offset="0" stop-color="#21626E"/>
+      <stop offset=".5" stop-color="#157C84"/>
+      <stop offset="1" stop-color="#03A3A5"/>
+    </linearGradient>
+    <linearGradient id="maya-e" gradientUnits="userSpaceOnUse" x1="229.6279" y1="449.0546" x2="36.6454" y2="629.0137" gradientTransform="matrix(1.1884 0 0 1.1884 92.7805 -133.6858)">
+      <stop offset="0" stop-color="#0B7C81"/>
+      <stop offset=".5" stop-color="#068D90"/>
+      <stop offset="1" stop-color="#16B1B1"/>
+    </linearGradient>
+    <linearGradient id="maya-f" gradientUnits="userSpaceOnUse" x1="408.1286" y1="668.6631" x2="506.7305" y2="588.8168" gradientTransform="matrix(1.1884 0 0 1.1884 92.7805 -133.6858)">
+      <stop offset="0" stop-color="#0A8A8F"/>
+      <stop offset=".5" stop-color="#0F7C82"/>
+      <stop offset="1" stop-color="#1A5964"/>
+    </linearGradient>
+    <linearGradient id="maya-g" gradientUnits="userSpaceOnUse" x1="557.3838" y1="570.4651" x2="452.5267" y2="504.9431" gradientTransform="matrix(1.1884 0 0 1.1884 92.7805 -133.6858)">
+      <stop offset="0" stop-color="#256A77"/>
+      <stop offset=".5" stop-color="#0D9499"/>
+      <stop offset="1" stop-color="#06A0A2"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#maya-a)" d="M599.515,277.002H749L549.214,646.034c0,0-33.66-97.766-48.127-132.655"/>
+  <path fill="url(#maya-b)" d="M636.39,733.305H749V277.002C748.905,515.459,648.681,733.305,636.39,733.305z"/>
+  <path fill="url(#maya-c)" d="M549.214,646.034H456.27L251,277.002c36.402-4.633,109.112-10.874,145.135-13.805L549.214,646.034z"/>
+  <path fill="url(#maya-d)" d="M370.04,500.331C339.215,622.113,250.905,736.898,251,736.803c102.304,0,124.334-14.845,124.334-22.692c0-4.349,0-140.219,0-204.514C373.537,506.572,371.836,503.452,370.04,500.331z"/>
+  <path fill="url(#maya-e)" d="M251,277.002v459.801c55.974-92.471,88.594-152.983,117.432-239.213C297.33,371.836,251,277.002,251,277.002z"/>
+  <polyline fill="url(#maya-f)" points="628.636,715.245 636.39,733.305 636.39,493.712 628.636,506.666"/>
+  <path fill="url(#maya-g)" d="M636.011,494.186v238.363l0.284,0.757c8.037,0,112.61-257.936,112.61-456.303C748.905,277.002,685.084,410.129,636.011,494.186z"/>
 </svg>

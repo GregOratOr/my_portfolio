@@ -103,7 +103,7 @@ export const TECH_REGISTRY = {
     category: "graphics",
     mono: true,
   },
-  MAYA: { label: "Autodesk Maya", slug: "maya", accent: "teal", category: "graphics", mono: true },
+  MAYA: { label: "Autodesk Maya", slug: "maya", accent: "teal", category: "graphics" },
   SIMULATION: {
     label: "Simulation",
     slug: "concept",
