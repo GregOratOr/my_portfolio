@@ -54,6 +54,7 @@ src/content/projects.ts
 
 # Personal assets
 public/resume.pdf
+public/profile.*
 public/images/logos/
 # Ignore the contents, not the directory itself -- git cannot re-include a file
 # whose parent directory is excluded, and placeholder.svg must stay committed.
