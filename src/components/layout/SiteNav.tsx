@@ -84,6 +84,8 @@ export default function SiteNav({ name, resumeUrl }: SiteNavProps) {
           {resumeUrl ? (
             <a
               href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden rounded-lg border border-accent bg-accent-soft px-3 py-1.5 text-sm font-medium text-accent transition hover:bg-accent hover:text-bg sm:inline-flex"
             >
               Resume
@@ -132,6 +134,8 @@ export default function SiteNav({ name, resumeUrl }: SiteNavProps) {
             <li>
               <a
                 href={resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
                 className="block py-3 text-sm font-medium text-accent"
               >
