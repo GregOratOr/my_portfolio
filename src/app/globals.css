@@ -1,76 +1,179 @@
 @import "tailwindcss";
 
+/* Dark mode follows a class on <html>, set by the theme toggle (and the
+   no-flash script in layout.tsx), not the OS preference alone. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Design tokens. Retheming the whole site means editing this block.
+   Neutral, warm-grey surfaces with a single restrained accent.
+--------------------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #fbfaf9;
+  --surface: #ffffff;
+  --surface-2: #f4f2f0;
+  --line: #e4e0db;
+  --fg: #1c1917;
+  --fg-muted: #6b6560;
+  --accent: #0f6f6c;
+  --accent-soft: #0f6f6c14;
+  --shadow: 0 1px 2px rgb(28 25 23 / 0.04), 0 8px 24px -12px rgb(28 25 23 / 0.12);
+}
+
+.dark {
+  --bg: #0c0c0d;
+  --surface: #16161a;
+  --surface-2: #1e1e23;
+  --line: #2c2c33;
+  --fg: #f5f4f2;
+  --fg-muted: #a3a09b;
+  --accent: #2dd4bf;
+  --accent-soft: #2dd4bf1f;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px -16px rgb(0 0 0 / 0.6);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --shadow-card: var(--shadow);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Keep anchored sections clear of the sticky nav. */
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---------------------------------------------------------------------------
+   Motion. Small, purposeful, and fully opt-out.
+--------------------------------------------------------------------------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Define the Keyframes */
+.animate-rise {
+  animation: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 @keyframes wave {
-  0% { transform: rotate(0.0deg) }
-  10% { transform: rotate(14.0deg) }
-  20% { transform: rotate(-8.0deg) }
-  30% { transform: rotate(14.0deg) }
-  40% { transform: rotate(-4.0deg) }
-  50% { transform: rotate(10.0deg) }
-  60% { transform: rotate(0.0deg) }
-  100% { transform: rotate(0.0deg) }
+  0%,
+  60%,
+  100% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
 }
 
-/* Create a custom utility class */
 .waving-hand {
   display: inline-block;
   transform-origin: 70% 70%;
 }
 
-/* Apply animation ONLY on hover */
 .waving-hand:hover {
   animation: wave 2s linear infinite;
 }
 
-/* Define the Jump Keyframes */
-@keyframes pin-jump {
-  0%   { transform: translateY(0) scale(1); }
-  50%  { transform: translateY(-10px) scale(1.1); } /* Up & slightly bigger */
-  100% { transform: translateY(0) scale(1); }      /* Back down */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-/* Custom class for the pin */
-.location-pin {
-  display: inline-block;
-  cursor: default;
-}
+/* ---------------------------------------------------------------------------
+   Print: a plain, readable resume-shaped document.
+--------------------------------------------------------------------------- */
+@media print {
+  :root {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #ffffff;
+    --fg: #000000;
+    --fg-muted: #333333;
+    --line: #cccccc;
+    --shadow: none;
+  }
 
-/* Apply animation on hover */
-.location-pin:hover {
-  animation: pin-jump 0.5s ease-in-out;
-}
+  .print-hidden {
+    display: none !important;
+  }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+  body {
+    font-size: 11pt;
+  }
 
-.animate-fadeIn {
-  animation: fadeIn 0.5s ease-out forwards;
+  section {
+    break-inside: avoid;
+    padding-block: 0.75rem !important;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555555;
+  }
 }

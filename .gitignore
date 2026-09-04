@@ -39,10 +39,25 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-src/data/experience.js
-src/data/projects.js
-src/data/portfolio.js
-src/data/logos/OSU_vertical_2C_O_over_W.png
-src/data/techs.js
+
 .vscode/settings.json
+
+# ---------------------------------------------------------------------------
+# Personal content. Never committed -- `npm run setup:content` recreates these
+# from the *.example.ts templates, and CI overlays the real ones from the
+# private content repo. See README "Content & privacy".
+# ---------------------------------------------------------------------------
+src/content/profile.ts
+src/content/skills.ts
+src/content/experience.ts
+src/content/projects.ts
+
+# Personal assets
 public/resume.pdf
+public/images/logos/
+# Ignore the contents, not the directory itself -- git cannot re-include a file
+# whose parent directory is excluded, and placeholder.svg must stay committed.
+public/images/projects/*
+!public/images/projects/placeholder.svg
+public/images/portrait.*
+public/og-image.*

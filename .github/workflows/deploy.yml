@@ -1,0 +1,85 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never run two deploys at once, but let a queued one finish rather than cancelling.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Job-level env so the values are readable from step `if:` conditions.
+    env:
+      CONTENT_REPO: ${{ vars.CONTENT_REPO }}
+      HAS_CONTENT_PAT: ${{ secrets.CONTENT_REPO_PAT != '' }}
+
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v4
+
+      # Real content lives in a private repo. Without the repo variable and the
+      # PAT (forks, PRs from forks) this is skipped and the build falls back to
+      # the committed *.example.ts templates -- a demo site instead of a failure.
+      - name: Checkout private content
+        id: content
+        if: env.CONTENT_REPO != '' && env.HAS_CONTENT_PAT == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.CONTENT_REPO }}
+          token: ${{ secrets.CONTENT_REPO_PAT }}
+          path: .content-repo
+
+      - name: Overlay private content
+        if: steps.content.outcome == 'success'
+        run: |
+          if [ -d .content-repo/content ]; then
+            cp -r .content-repo/content/. src/content/
+            echo "Overlaid src/content from the private repo."
+          fi
+          if [ -d .content-repo/public ]; then
+            cp -r .content-repo/public/. public/
+            echo "Overlaid public/ assets from the private repo."
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # postinstall (scripts/init-content.mjs) fills in any content file the
+      # overlay did not provide, so the build always has all four modules.
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
